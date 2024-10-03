@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #050303;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        #mensagem {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #0c0b0b;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function mostrarMensagem() {
+            const numero = document.getElementById('numero').value;
+            const mensagem = document.getElementById('mensagem');
+            const lista = document.getElementById('lista');
+            lista.innerHTML = '';
+
+            if (numero.trim() === '' || isNaN(numero) || numero <= 0) {
+                mensagem.textContent = 'Por favor, insira um número válido.';
+            } else if (numero == 5) {
+                mensagem.textContent = '';
+                for (let i = 1; i <= 5; i++) {
+                    const item = document.createElement('li');
+                    item.textContent = `${i}. Nicolas`;
+                    lista.appendChild(item);
+                }
+            } else {
+                mensagem.textContent = `Você digitou o número ${numero}, mas não é 5.`;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gerador de Lista</h1>
+        <input type="text" id="numero" placeholder="Digite um número">
+        <button onclick="mostrarMensagem()">Listar</button>
+        <p id="mensagem"></p>
+        <ul id="lista"></ul>
+    </div>
+
+</body>
+
+</html>
